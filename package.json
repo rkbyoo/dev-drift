@@ -1,0 +1,24 @@
+{
+  "name": "dev-drift",
+  "version": "1.0.0",
+  "description": "dev-drift is a developer CLI tool that detects project drift — silent changes in Node version, environment variables, scripts, and folder structure that slowly break projects over time. It snapshots your project state and later compares it to report exactly what changed and why things may have stopped working.",
+  "main": "index.js",
+  "bin": {
+  "dev-drift": "./bin/dev-drift.js"
+},
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rkbyoo/dev-drift.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/rkbyoo/dev-drift/issues"
+  },
+  "homepage": "https://github.com/rkbyoo/dev-drift#readme"
+}
