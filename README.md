@@ -2,6 +2,22 @@
 
 A developer CLI tool that detects project drift — silent changes in Node version, environment variables, scripts, and folder structure that slowly break projects over time.
 
+## Table of Contents
+
+- [The Problem: Project Drift](#the-problem-project-drift)
+- [How dev-drift Solves This](#how-dev-drift-solves-this)
+- [Key Features](#key-features)
+- [How dev-drift Works](#how-dev-drift-works)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Screenshots](#screenshots) 📸
+- [Design Decisions](#design-decisions)
+- [Project Structure](#project-structure)
+- [Sample Output](#sample-output)
+- [Detailed Documentation](#detailed-documentation)
+- [Future Enhancements](#future-enhancements)
+- [License](#license)
+
 ## The Problem: Project Drift
 
 Have you ever returned to a project after weeks or months, only to find it no longer works? The build fails, tests break, or the app won't start. Nothing obvious changed, but something is different.
@@ -75,6 +91,10 @@ cd dev-drift
 
 # Install as a global command (for development)
 npm link
+
+# Verify installation
+dev-drift --help
+```
 
 ## Usage
 
@@ -184,8 +204,8 @@ Environment variables often contain sensitive data like API keys, database URLs,
 
 Automatic baseline updates would defeat the purpose of drift detection:
 - **Intentionality**: Changes should be deliberate, not automatic
-- **Debugging**:  to see what changed, not just accept it
-- **Control**:  decide when the project state is "good"
+- **Debugging**:  need to see what changed, not just accept it
+- **Control**: Developers decide when the project state is "good"
 
 ### Why Snapshot Comparison?
 
@@ -227,7 +247,6 @@ When your project state matches the baseline:
 $ dev-drift check
 ✓ No drift detected.
 ```
-OR 
 
 ### Drift Detected Scenario
 
