@@ -11,6 +11,11 @@ const projectRoot = process.cwd();
 const driftDir = path.join(projectRoot, ".dev-drift");
 const baselinePath = path.join(driftDir, "baseline.json");
 
+if (command === '--help' || command === '-h') {
+  console.log('Usage: dev-drift init | check | reset');
+  process.exit(0);
+}
+
 if (command === "init") {
   if (fs.existsSync(baselinePath)) {
     console.error("dev-drift already initialized");
