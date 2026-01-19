@@ -1,0 +1,18 @@
+{
+  "nodeVersion": "v22.17.0",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "envKeys": [
+    "DB_URL",
+    "PORT"
+  ],
+  "folders": [
+    ".dev-drift",
+    ".git",
+    "bin",
+    "src"
+  ]
+}
