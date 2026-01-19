@@ -76,15 +76,6 @@ cd dev-drift
 # Install as a global command (for development)
 npm link
 
-# Verify installation
-dev-drift --help
-```
-
-For production use, this would typically be installed via:
-```bash
-npm install -g dev-drift
-```
-
 ## Usage
 
 ### Initialize Baseline
@@ -139,6 +130,47 @@ dev-drift reset
 ✓ Run `dev-drift init` to create a new baseline.
 ```
 
+## Screenshots
+
+### Step 1: Setup and Installation
+
+After cloning the repository, use `npm link` to install dev-drift as a global command for local development:
+
+![npm link setup](screenshots/npm-link.png)
+
+This screenshot shows:
+- Cloning the dev-drift repository
+- Running `npm link` to make the command globally available
+- Verifying the installation works with `dev-drift --help`
+
+### Step 2: Reset and Initialize Baseline
+
+Clean slate setup by resetting any previous baseline and creating a fresh snapshot:
+
+![reset and init commands](screenshots/reset%20and%20init.png)
+
+This screenshot demonstrates:
+- `dev-drift reset` - Removes any existing baseline to start fresh
+- `dev-drift init` - Creates a new baseline snapshot when the project is in a known good state
+- The `.dev-drift/baseline.json` file is created with the current project state
+
+### Step 3: Drift Detection in Action
+
+After making changes to the project environment manually (can be anything, try changing the node version or adding something new env variable or creating new directory), dev-drift detects and reports the drift:
+
+![drift detection results](screenshots/drift%20check.png)
+
+This screenshot shows:
+- `dev-drift check` command detecting multiple types of drift
+- Clear reporting of what changed:
+  - Node version changes
+  - Environment variable additions/removals
+  - Folder structure modifications
+  - Package.json script changes
+- Detailed output that helps developers understand exactly what environmental changes occurred
+
+These screenshots demonstrate the complete workflow from installation to drift detection, showing how dev-drift provides immediate visibility into project environmental changes that could cause mysterious failures.
+
 ## Design Decisions
 
 ### Why Only Environment Variable Keys?
@@ -152,8 +184,8 @@ Environment variables often contain sensitive data like API keys, database URLs,
 
 Automatic baseline updates would defeat the purpose of drift detection:
 - **Intentionality**: Changes should be deliberate, not automatic
-- **Debugging**: You need to see what changed, not just accept it
-- **Control**: Developers decide when the project state is "good"
+- **Debugging**:  to see what changed, not just accept it
+- **Control**:  decide when the project state is "good"
 
 ### Why Snapshot Comparison?
 
@@ -195,6 +227,7 @@ When your project state matches the baseline:
 $ dev-drift check
 ✓ No drift detected.
 ```
+OR 
 
 ### Drift Detected Scenario
 
