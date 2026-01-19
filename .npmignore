@@ -1,0 +1,6 @@
+.dev-drift/
+docs/
+node_modules/
+test-snapshot.js
+.env
+.env.*
